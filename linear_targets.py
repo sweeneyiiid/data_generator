@@ -1,5 +1,4 @@
 import pandas as pd
-import os
 import numpy as np
 
 """
@@ -8,7 +7,7 @@ This can only be used for integrs at the moment
 """
 def linear_targets(start_value = 1, end_value = 1000, num_points=7):
     linear_numbers = np.linspace(start_value, end_value, num_points)
-    linear_numbers = [int(x) for x in linear_numbers]
+#    linear_numbers = [int(x) for x in linear_numbers]
     return linear_numbers
 
 # using ....
