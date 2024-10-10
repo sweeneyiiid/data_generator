@@ -1,6 +1,6 @@
-from exponential_targets import generate_exponential_increase
-from linear_targets import linear_targets
-from gen_floats import float_generator
+from utils.exponential_targets import generate_exponential_increase
+from utils.linear_targets import linear_targets
+from utils.gen_floats import float_generator
 import pandas as pd
 
 def get_country_level_df(no_of_countries,start_year,no_of_years,total_achieved,distribution_type,no_of_sub_categories):

@@ -1,4 +1,4 @@
-import linear_targets, exponential_targets
+import utils.linear_targets as linear_targets, utils.exponential_targets as exponential_targets
 
 """
 Use this to make use of the script

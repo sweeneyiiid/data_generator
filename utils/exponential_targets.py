@@ -5,7 +5,7 @@ def generate_exponential_increase(n, value):
     # Generate n values exponentially spaced between 1 and value
     exp_values = np.geomspace(1, value, num=n)
     exp_values = exp_values.astype(int)
-    print (exp_values)
+#    print (exp_values)
     exp = [1]
     for num in range(1,n):
         exp.append(exp_values[num] - exp_values[num - 1])
