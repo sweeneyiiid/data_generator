@@ -1,22 +1,21 @@
-import pandas as pd
 import numpy as np
+import pandas as pd 
 
-"""
-This can be used to generate a dataframe of linearly distributed values against set targets
-This can only be used for integrs at the moment
-"""
-def linear_targets(start_value = 1, end_value = 1000, num_points=7):
-    linear_numbers = np.linspace(start_value, end_value, num_points)
-    linear_numbers = [int(x) for x in linear_numbers]
-    lin = [1]
-    for num in range(1,num_points):
-        lin.append(linear_numbers[num] - linear_numbers[num - 1])
+def generate_exponential_increase(n, value):
+    # Generate n values exponentially spaced between 1 and value
+    exp_values = np.geomspace(1, value, num=n)
+    exp_values = exp_values.astype(int)
+    print (exp_values)
+    exp = [1]
+    for num in range(1,n):
+        exp.append(exp_values[num] - exp_values[num - 1])
     # Return the values as integers
-    return lin
+    return exp
 
-# using ....
+# print (generate_exponential_increase(12,1000))
 
 def target_dataframe_gen(**kwargs):
+
     """
     I require the following to run successfully
     start_year,end_year,targets= {
@@ -24,6 +23,7 @@ def target_dataframe_gen(**kwargs):
     'target2':1000...
     }
     """
+
     # get the values
     start_year = kwargs.get('start_year')
     end_year = kwargs.get('end_year')
@@ -35,7 +35,7 @@ def target_dataframe_gen(**kwargs):
 
     # create cols by looping over each target
     for key, target_value in targets.items():
-        df[key] = linear_targets(end_value=target_value, num_points=len(years))
+        df[key] = generate_exponential_increase(value=target_value, n=len(years))
     
     return df 
 
@@ -44,10 +44,10 @@ def target_dataframe_gen(**kwargs):
 if __name__ == '__main__':
     df  = target_dataframe_gen(
         start_year = 2024,
-        end_year = 2035,
+        end_year = 2036,
         targets= {
         'target1':2000,
     'target2':1000
         })
 
-    df.to_csv('testing_this_out.csv',index=False)
+    df.to_csv('exp_targets.csv',index=False)

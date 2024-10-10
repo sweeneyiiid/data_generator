@@ -1,4 +1,4 @@
-import linear_targets
+import linear_targets, exponential_targets
 
 """
 Use this to make use of the script
@@ -17,6 +17,14 @@ df = linear_targets.target_dataframe_gen(
     "connections_via_distributed_renewable_energy_devices_target": 10000,
     "renewable_energy_capacity_enabled_target": 5
     }
+
 )
 
-df.to_csv('testing_this_out.csv',index=False)
+# df.to_csv('testing_this_out.csv',index=False)
+
+df1 = exponential_targets.target_dataframe_gen(
+        start_year = 2024,end_year = 2031,targets= {
+    "private_capital_mobilized": 5000000
+    }
+)
+df1.to_csv('exp_results_capital.csv',index=False)
