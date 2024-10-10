@@ -14,10 +14,6 @@ def float_generator(n):
     random.shuffle(floats)
     return floats
 
-# Example usage
-
-
-# Example usage
 if __name__ == '__main__':
     n = 10
     floats = float_generator(n)
